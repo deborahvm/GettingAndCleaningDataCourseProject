@@ -12,7 +12,7 @@ This repository is composed of other 3 files, as described below:
 
 1. tidyDataSet.txt, a txt file which contais the variables corresponding to the mean and standard deviation measurements from the smartphone accelerometers for each human activity; 
 2. CodeBook.md, a code book that describes the variables, the data, and transformations performed to clean up the raw data;
-3. run_analysis.R, the R script which contains the steps that I used to go from the row data to the tidy data set.
+3. run_analysis.R, the R script which contains the steps that I used to go from the raw data to the tidy data set.
 
 How the run_analysis work?
 --------------------------
