@@ -13,17 +13,17 @@ run_analysis <- function() {
  ## 5. From the data set in step 4, creates a second, independent tidy data set 
  ## with the average of each variable for each activity and each subject.
     
-    trainFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/train/X_train.txt"
+    trainFilePath <- "./rawDataset/train/X_train.txt"
     inputTrain <- read.table(trainFilePath, header=FALSE, dec=".")
-    activityTrainFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/train/y_train.txt"
+    activityTrainFilePath <- "./rawDataset/train/y_train.txt"
     activityTrain <- read.table(activityTrainFilePath, header=FALSE)
-    testFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/test/X_test.txt"
+    testFilePath <- "./rawDataset/test/X_test.txt"
     inputTest <- read.table(testFilePath, header=FALSE, dec=".")
-    activityTestFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/test/y_test.txt"
+    activityTestFilePath <- "./rawDataset/test/y_test.txt"
     activityTest <- read.table(activityTestFilePath, header=FALSE)
-    featuresFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/features.txt"
+    featuresFilePath <- "./rawDataset/features.txt"
     features <- read.table(featuresFilePath)
-    activityLabelsFilePath <- "/home/deborah/deborah/courses/Getting and Cleaning Data/Project/UCI HAR Dataset/activity_labels.txt"
+    activityLabelsFilePath <- "./rawDataset/activity_labels.txt"
     activityLabels <- read.table(activityLabelsFilePath)
     newDataSet <- NULL
     labels <- NULL
@@ -42,7 +42,6 @@ run_analysis <- function() {
         checkMean <- grepl('-mean\\(\\)$', features$V2[i]) 
         checkStd <- grepl('-std\\(\\)$', features$V2[i])
         if(checkMean  || checkStd){
-            print(features$V2[i])
             count <- count + 1
             newDataSet <- cbind(newDataSet, fullDataSet[, i])
             colnames(newDataSet)[count] <- paste(features$V2[i])
